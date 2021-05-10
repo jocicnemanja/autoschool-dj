@@ -1,0 +1,8 @@
+version: '3.8'
+services:
+  autoschool_new-app:
+    build: ../../..
+    container_name: autoschool_new-app
+    environment:
+    ports:
+      - 8081:8081
