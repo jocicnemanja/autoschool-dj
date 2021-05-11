@@ -1,0 +1,27 @@
+{
+  "autoschoolNewApp": {
+    "lessons": {
+      "home": {
+        "title": "Časovi",
+        "refreshListLabel": "Osveži listu",
+        "createLabel": "Dodaj nove časove",
+        "createOrEditLabel": "Create or edit a Lessons",
+        "notFound": "Nema unešenih časova"
+      },
+      "created": "A new Lessons is created with identifier {{ param }}",
+      "updated": "A Lessons is updated with identifier {{ param }}",
+      "deleted": "A Lessons is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Lessons {{ id }}?"
+      },
+      "detail": {
+        "title": "Časovi"
+      },
+      "id": "ID",
+      "date": "Datum unosa časova",
+      "type": "Tip časova",
+      "amount": "Broj časova",
+      "student": "Student"
+    }
+  }
+}

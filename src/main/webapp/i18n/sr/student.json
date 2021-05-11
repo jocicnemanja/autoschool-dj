@@ -1,0 +1,35 @@
+{
+  "autoschoolNewApp": {
+    "student": {
+      "home": {
+        "title": "Kandidati",
+        "refreshListLabel": "Osveži listu",
+        "createLabel": "Dodajte novog kandidata",
+        "createOrEditLabel": "Create or edit a Student",
+        "notFound": "Nema unetih kandidata"
+      },
+      "created": "A new Student is created with identifier {{ param }}",
+      "updated": "A Student is updated with identifier {{ param }}",
+      "deleted": "A Student is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Student {{ id }}?"
+      },
+      "detail": {
+        "title": "Kandidat"
+      },
+      "id": "ID",
+      "firstName": "Ime",
+      "middleName": "Ime oca",
+      "lastName": "Prezime",
+      "email": "E-mail",
+      "phoneNumber": "Broj telefona",
+      "jmbg": "JMBG",
+      "date": "Datum rođenja",
+      "payments": "Uplate",
+      "lessons": "Časovi",
+      "help": {
+        "firstName": "The firstname attribute."
+      }
+    }
+  }
+}

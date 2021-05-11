@@ -10,42 +10,6 @@
           <jhi-alert-error></jhi-alert-error>
 
           <jhi-alert></jhi-alert>
-
-          <dl class="row-md jh-entity-details">
-            <dt>
-              <span jhiTranslate="autoschoolNewApp.student.firstName" [ngbTooltip]="'autoschoolNewApp.student.help.firstName' | translate"
-                >First Name</span
-              >
-            </dt>
-            <dd>
-              <span>{{ student.firstName }}</span>
-            </dd>
-            <dt><span jhiTranslate="autoschoolNewApp.student.middleName">Middle Name</span></dt>
-            <dd>
-              <span>{{ student.middleName }}</span>
-            </dd>
-            <dt><span jhiTranslate="autoschoolNewApp.student.lastName">Last Name</span></dt>
-            <dd>
-              <span>{{ student.lastName }}</span>
-            </dd>
-            <dt><span jhiTranslate="autoschoolNewApp.student.email">Email</span></dt>
-            <dd>
-              <span>{{ student.email }}</span>
-            </dd>
-            <dt><span jhiTranslate="autoschoolNewApp.student.phoneNumber">Phone Number</span></dt>
-            <dd>
-              <span>{{ student.phoneNumber }}</span>
-            </dd>
-            <dt><span jhiTranslate="autoschoolNewApp.student.jmbg">Jmbg</span></dt>
-            <dd>
-              <span>{{ student.jmbg }}</span>
-            </dd>
-            <dt><span jhiTranslate="autoschoolNewApp.student.date">Date</span></dt>
-            <dd>
-              <span>{{ student.date | formatMediumDatetime }}</span>
-            </dd>
-          </dl>
-
           <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
             <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
           </button>
@@ -53,6 +17,80 @@
           <button type="button" [routerLink]="['/student', student.id, 'edit']" class="btn btn-primary">
             <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
           </button>
+          <!--          <dl class='row-md jh-entity-details'>-->
+          <!--            <dt>-->
+          <!--              <span jhiTranslate='autoschoolNewApp.student.firstName'-->
+          <!--                    [ngbTooltip]="'autoschoolNewApp.student.help.firstName' | translate"-->
+          <!--              >First Name</span-->
+          <!--              >-->
+          <!--            </dt>-->
+          <!--            <dd>-->
+          <!--              <span>{{ student.firstName }}</span>-->
+          <!--            </dd>-->
+          <!--            <dt><span jhiTranslate='autoschoolNewApp.student.middleName'>Middle Name</span></dt>-->
+          <!--            <dd>-->
+          <!--              <span>{{ student.middleName }}</span>-->
+          <!--            </dd>-->
+          <!--            <dt><span jhiTranslate='autoschoolNewApp.student.lastName'>Last Name</span></dt>-->
+          <!--            <dd>-->
+          <!--              <span>{{ student.lastName }}</span>-->
+          <!--            </dd>-->
+          <!--            <dt><span jhiTranslate='autoschoolNewApp.student.email'>Email</span></dt>-->
+          <!--            <dd>-->
+          <!--              <span>{{ student.email }}</span>-->
+          <!--            </dd>-->
+          <!--            <dt><span jhiTranslate='autoschoolNewApp.student.phoneNumber'>Phone Number</span></dt>-->
+          <!--            <dd>-->
+          <!--              <span>{{ student.phoneNumber }}</span>-->
+          <!--            </dd>-->
+          <!--            <dt><span jhiTranslate='autoschoolNewApp.student.jmbg'>Jmbg</span></dt>-->
+          <!--            <dd>-->
+          <!--              <span>{{ student.jmbg }}</span>-->
+          <!--            </dd>-->
+          <!--            <dt><span jhiTranslate='autoschoolNewApp.student.date'>Date</span></dt>-->
+          <!--            <dd>-->
+          <!--              <span>{{ student.date | formatMediumDatetime }}</span>-->
+          <!--            </dd>-->
+          <!--          </dl>-->
+
+          <table class="table">
+            <tbody>
+              <tr>
+                <th scope="row">
+                  <span
+                    jhiTranslate="autoschoolNewApp.student.firstName"
+                    [ngbTooltip]="'autoschoolNewApp.student.help.firstName' | translate"
+                    >First Name</span
+                  >
+                </th>
+                <td>{{ student.firstName }}</td>
+              </tr>
+              <tr>
+                <th><span jhiTranslate="autoschoolNewApp.student.middleName">Middle Name</span></th>
+                <td>{{ student.middleName }}</td>
+              </tr>
+              <tr>
+                <th><span jhiTranslate="autoschoolNewApp.student.lastName">Last Name</span></th>
+                <td>{{ student.lastName }}</td>
+              </tr>
+              <tr>
+                <th scope="row"><span jhiTranslate="autoschoolNewApp.student.email">Email</span></th>
+                <td>{{ student.email }}</td>
+              </tr>
+              <tr>
+                <th scope="row"><span jhiTranslate="autoschoolNewApp.student.phoneNumber">Phone Number</span></th>
+                <td>{{ student.phoneNumber }}</td>
+              </tr>
+              <tr>
+                <th scope="row"><span jhiTranslate="autoschoolNewApp.student.date">Date</span></th>
+                <td>{{ student.jmbg }}</td>
+              </tr>
+              <tr>
+                <th scope="row"><span jhiTranslate="autoschoolNewApp.student.date">Date</span></th>
+                <td>{{ student.date | formatMediumDatetime }}</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
         <div class="col">
           <h2 data-cy="studentDetailsHeading"><span>Racunica</span></h2>
@@ -87,7 +125,7 @@
 
       <div class="row mt-5">
         <div class="col">
-          <h2 data-cy="studentDetailsHeading"><span jhiTranslate="autoschoolNewApp.student.detail.title">Payments</span></h2>
+          <h2 data-cy="studentDetailsHeading"><span jhiTranslate="autoschoolNewApp.lessons.detail.title">Lessons</span></h2>
           <hr />
           <div class="alert alert-warning" id="no-result" *ngIf="student.lessons?.length === 0">
             <span jhiTranslate="autoschoolNewApp.lessons.home.notFound">No lessons found</span>
@@ -158,22 +196,18 @@
           </div>
         </div>
         <div class="col">
-          <h2 data-cy="studentDetailsHeading"><span jhiTranslate="autoschoolNewApp.student.detail.title">Lessons</span></h2>
+          <h2 data-cy="studentDetailsHeading"><span jhiTranslate="autoschoolNewApp.payment.detail.title">Payments</span></h2>
           <hr />
           <div class="table-responsive" id="entities-payments" *ngIf="student.payments && student.payments.length > 0">
             <table class="table table-striped" aria-describedby="page-heading">
               <thead>
                 <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending">
-                  <th scope="col" jhiSortBy="amount">
-                    <span jhiTranslate="autoschoolNewApp.payment.amount">Amount</span>
-                    <fa-icon icon="sort"></fa-icon>
-                  </th>
                   <th scope="col" jhiSortBy="date">
                     <span jhiTranslate="autoschoolNewApp.payment.date">Date</span>
                     <fa-icon icon="sort"></fa-icon>
                   </th>
-                  <th scope="col" jhiSortBy="student.id">
-                    <span jhiTranslate="autoschoolNewApp.payment.student">Student</span>
+                  <th scope="col" jhiSortBy="amount">
+                    <span jhiTranslate="autoschoolNewApp.payment.amount">Amount</span>
                     <fa-icon icon="sort"></fa-icon>
                   </th>
                   <th scope="col"></th>
@@ -181,13 +215,8 @@
               </thead>
               <tbody>
                 <tr *ngFor="let payment of student.payments; trackBy: trackId" data-cy="entityTable">
-                  <td>{{ payment.amount }}</td>
                   <td>{{ payment.date | formatMediumDatetime }}</td>
-                  <td>
-                    <div *ngIf="payment.student">
-                      <a [routerLink]="['/student', payment.student?.id, 'view']">{{ payment.student?.id }}</a>
-                    </div>
-                  </td>
+                  <td>{{ payment.amount }}</td>
                   <td class="text-right">
                     <div class="btn-group">
                       <button

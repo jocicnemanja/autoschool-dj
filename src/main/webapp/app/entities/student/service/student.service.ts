@@ -83,6 +83,13 @@ export class StudentService {
     if (res.body) {
       res.body.date = res.body.date ? dayjs(res.body.date) : undefined;
     }
+    if (res.body?.lessons) {
+      res.body.lessons.forEach(lesson => (lesson.date = lesson.date ? dayjs(lesson.date) : undefined));
+    }
+
+    if (res.body?.payments) {
+      res.body.payments.forEach(payment => (payment.date = payment.date ? dayjs(payment.date) : undefined));
+    }
     return res;
   }
 
