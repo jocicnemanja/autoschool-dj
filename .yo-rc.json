@@ -45,10 +45,12 @@
     "messageBroker": false,
     "clientPackageManager": "npm",
     "clientThemeVariant": "",
-    "languages": ["en"],
+    "languages": ["en", "sr"],
     "cacheProvider": "ehcache",
     "buildTool": "maven",
     "enableHibernateCache": true,
-    "reactive": false
+    "reactive": false,
+    "entities": ["Student", "Payment", "Lessons"],
+    "lastLiquibaseTimestamp": 1620666118000
   }
 }

@@ -39,6 +39,8 @@ export class NavbarComponent implements OnInit {
       this.inProduction = profileInfo.inProduction;
       this.openAPIEnabled = profileInfo.openAPIEnabled;
     });
+    this.sessionStorage.store('locale', 'sr');
+    this.translateService.use('sr');
   }
 
   changeLanguage(languageKey: string): void {

@@ -1,0 +1,45 @@
+
+entity Student {
+	/**
+	* The firstname attribute.
+	*/
+	firstName String,
+    middleName String
+	lastName String,
+	email String,
+	phoneNumber String,
+	jmbg Integer,
+	date ZonedDateTime
+}
+
+entity Payment {
+	amount Integer,
+	date ZonedDateTime,
+}
+
+entity Lessons {
+	date ZonedDateTime,
+	type String,
+	amount Integer
+}
+
+
+relationship OneToMany {
+	Student{payments} to Payment,
+}
+
+relationship OneToMany {
+	Student{lessons} to Lessons,
+}
+
+
+// Set pagination options
+paginate Student with pagination
+paginate Payment with pagination
+paginate Lessons with pagination
+
+// Use Data Transfer Objects (DTO)
+// dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl

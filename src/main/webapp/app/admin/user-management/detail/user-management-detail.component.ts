@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { User } from '../user-management.model';
+import { LessonsService } from 'app/entities/lessons/service/lessons.service';
+import { ILessons } from 'app/entities/lessons/lessons.model';
 
 @Component({
   selector: 'jhi-user-mgmt-detail',
