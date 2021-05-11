@@ -3,56 +3,23 @@
     <div *ngIf="student">
       <div class="row">
         <div class="col">
-          <h2 data-cy="studentDetailsHeading"><span jhiTranslate="autoschoolNewApp.student.detail.title">Student</span></h2>
-
-          <hr />
+          <div class="row">
+            <div class="col">
+              <h2 data-cy="studentDetailsHeading"><span jhiTranslate="autoschoolNewApp.student.detail.title">Student</span></h2>
+            </div>
+            <div class="col text-right">
+              <button type="button" [routerLink]="['/student', student.id, 'edit']" class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+            </div>
+          </div>
 
           <jhi-alert-error></jhi-alert-error>
 
           <jhi-alert></jhi-alert>
-          <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
-            <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
-          </button>
-
-          <button type="button" [routerLink]="['/student', student.id, 'edit']" class="btn btn-primary">
-            <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
-          </button>
-          <!--          <dl class='row-md jh-entity-details'>-->
-          <!--            <dt>-->
-          <!--              <span jhiTranslate='autoschoolNewApp.student.firstName'-->
-          <!--                    [ngbTooltip]="'autoschoolNewApp.student.help.firstName' | translate"-->
-          <!--              >First Name</span-->
-          <!--              >-->
-          <!--            </dt>-->
-          <!--            <dd>-->
-          <!--              <span>{{ student.firstName }}</span>-->
-          <!--            </dd>-->
-          <!--            <dt><span jhiTranslate='autoschoolNewApp.student.middleName'>Middle Name</span></dt>-->
-          <!--            <dd>-->
-          <!--              <span>{{ student.middleName }}</span>-->
-          <!--            </dd>-->
-          <!--            <dt><span jhiTranslate='autoschoolNewApp.student.lastName'>Last Name</span></dt>-->
-          <!--            <dd>-->
-          <!--              <span>{{ student.lastName }}</span>-->
-          <!--            </dd>-->
-          <!--            <dt><span jhiTranslate='autoschoolNewApp.student.email'>Email</span></dt>-->
-          <!--            <dd>-->
-          <!--              <span>{{ student.email }}</span>-->
-          <!--            </dd>-->
-          <!--            <dt><span jhiTranslate='autoschoolNewApp.student.phoneNumber'>Phone Number</span></dt>-->
-          <!--            <dd>-->
-          <!--              <span>{{ student.phoneNumber }}</span>-->
-          <!--            </dd>-->
-          <!--            <dt><span jhiTranslate='autoschoolNewApp.student.jmbg'>Jmbg</span></dt>-->
-          <!--            <dd>-->
-          <!--              <span>{{ student.jmbg }}</span>-->
-          <!--            </dd>-->
-          <!--            <dt><span jhiTranslate='autoschoolNewApp.student.date'>Date</span></dt>-->
-          <!--            <dd>-->
-          <!--              <span>{{ student.date | formatMediumDatetime }}</span>-->
-          <!--            </dd>-->
-          <!--          </dl>-->
-
+          <!--          <button type='submit' (click)='previousState()' class='btn btn-info' data-cy='entityDetailsBackButton'>-->
+          <!--            <fa-icon icon='arrow-left'></fa-icon>&nbsp;<span jhiTranslate='entity.action.back'>Back</span>-->
+          <!--          </button>-->
           <table class="table">
             <tbody>
               <tr>
@@ -94,8 +61,6 @@
         </div>
         <div class="col">
           <h2 data-cy="studentDetailsHeading"><span>Racunica</span></h2>
-          <hr />
-
           <table class="table">
             <tbody>
               <tr>
@@ -125,8 +90,22 @@
 
       <div class="row mt-5">
         <div class="col">
-          <h2 data-cy="studentDetailsHeading"><span jhiTranslate="autoschoolNewApp.lessons.detail.title">Lessons</span></h2>
-          <hr />
+          <div class="row">
+            <div class="col">
+              <h2 data-cy="studentDetailsHeading"><span jhiTranslate="autoschoolNewApp.lessons.detail.title">Lessons</span></h2>
+            </div>
+            <div class="col text-right">
+              <button
+                id="jh-create-entity-lessons"
+                data-cy="entityCreateButton"
+                class="btn btn-primary jh-create-entity create-lessons"
+                [routerLink]="['/lessons/new']"
+              >
+                <fa-icon icon="plus"></fa-icon>
+                <span jhiTranslate="autoschoolNewApp.lessons.home.createLabel"> Create a new Lessons </span>
+              </button>
+            </div>
+          </div>
           <div class="alert alert-warning" id="no-result" *ngIf="student.lessons?.length === 0">
             <span jhiTranslate="autoschoolNewApp.lessons.home.notFound">No lessons found</span>
           </div>
@@ -146,9 +125,6 @@
                     <span jhiTranslate="autoschoolNewApp.lessons.amount">Amount</span>
                     <fa-icon icon="sort"></fa-icon>
                   </th>
-                  <!--            <th scope="col" jhiSortBy="student.id">-->
-                  <!--              <span jhiTranslate="autoschoolNewApp.lessons.student">Student</span> <fa-icon icon="sort"></fa-icon>-->
-                  <!--            </th>-->
                   <th scope="col"></th>
                 </tr>
               </thead>
@@ -157,23 +133,8 @@
                   <td>{{ lessons.date | formatMediumDatetime }}</td>
                   <td>{{ lessons.type }}</td>
                   <td>{{ lessons.amount }}</td>
-                  <!--            <td>-->
-                  <!--              <div *ngIf="lessons.student">-->
-                  <!--                <a [routerLink]="['/student', lessons.student?.id, 'view']">{{ lessons.student?.id }}</a>-->
-                  <!--              </div>-->
-                  <!--            </td>-->
                   <td class="text-right">
                     <div class="btn-group">
-                      <button
-                        type="submit"
-                        [routerLink]="['/lessons', lessons.id, 'view']"
-                        class="btn btn-info btn-sm"
-                        data-cy="entityDetailsButton"
-                      >
-                        <fa-icon icon="eye"></fa-icon>
-                        <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
-                      </button>
-
                       <button
                         type="submit"
                         [routerLink]="['/lessons', lessons.id, 'edit']"
@@ -184,7 +145,7 @@
                         <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
                       </button>
 
-                      <button type="submit" (click)="delete(lessons)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                      <button type="submit" (click)="deleteLessons(lessons)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
                         <fa-icon icon="times"></fa-icon>
                         <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
                       </button>
@@ -196,8 +157,23 @@
           </div>
         </div>
         <div class="col">
-          <h2 data-cy="studentDetailsHeading"><span jhiTranslate="autoschoolNewApp.payment.detail.title">Payments</span></h2>
-          <hr />
+          <div class="row">
+            <div class="col">
+              <h2 data-cy="studentDetailsHeading"><span jhiTranslate="autoschoolNewApp.payment.detail.title">Payments</span></h2>
+            </div>
+            <div class="col text-right">
+              <button
+                id="jh-create-entity-payment"
+                data-cy="entityCreateButton"
+                class="btn btn-primary jh-create-entity create-payment"
+                [routerLink]="['/payment/new']"
+              >
+                <fa-icon icon="plus"></fa-icon>
+                <span jhiTranslate="autoschoolNewApp.payment.home.createLabel"> Create a new Payment </span>
+              </button>
+            </div>
+          </div>
+
           <div class="table-responsive" id="entities-payments" *ngIf="student.payments && student.payments.length > 0">
             <table class="table table-striped" aria-describedby="page-heading">
               <thead>
@@ -221,16 +197,6 @@
                     <div class="btn-group">
                       <button
                         type="submit"
-                        [routerLink]="['/payment', payment.id, 'view']"
-                        class="btn btn-info btn-sm"
-                        data-cy="entityDetailsButton"
-                      >
-                        <fa-icon icon="eye"></fa-icon>
-                        <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
-                      </button>
-
-                      <button
-                        type="submit"
                         [routerLink]="['/payment', payment.id, 'edit']"
                         class="btn btn-primary btn-sm"
                         data-cy="entityEditButton"
@@ -239,7 +205,7 @@
                         <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
                       </button>
 
-                      <button type="submit" (click)="delete(payment)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                      <button type="submit" (click)="deletePayment(payment)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
                         <fa-icon icon="times"></fa-icon>
                         <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
                       </button>
