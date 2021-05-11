@@ -12,6 +12,7 @@ import { ILessons, Lessons } from '../lessons.model';
 import { LessonsService } from '../service/lessons.service';
 import { IStudent } from 'app/entities/student/student.model';
 import { StudentService } from 'app/entities/student/service/student.service';
+import { LessonsType } from '../lessons.enum';
 
 @Component({
   selector: 'jhi-lessons-update',
@@ -21,6 +22,7 @@ export class LessonsUpdateComponent implements OnInit {
   isSaving = false;
 
   studentsSharedCollection: IStudent[] = [];
+  lessonsType = LessonsType;
 
   editForm = this.fb.group({
     id: [],

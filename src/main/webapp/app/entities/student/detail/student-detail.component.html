@@ -57,28 +57,28 @@
           </table>
         </div>
         <div class="col">
-          <h2 data-cy="studentDetailsHeading"><span>Racunica</span></h2>
+          <h2 data-cy="studentDetailsHeading"><span>Finansijski status</span></h2>
           <table class="table">
             <tbody>
               <tr>
-                <th scope="row">Ukupan broj redovnih teorijskih casova</th>
-                <td>20</td>
+                <th scope="row">Ukupan broj teorijskih časova</th>
+                <td>{{ theoreticalHours }}</td>
               </tr>
               <tr>
-                <th scope="row">Ukupan broj redovnih prakticnih casova</th>
-                <td>20</td>
+                <th scope="row">Ukupan broj praktičnih časova</th>
+                <td>{{ drivingHours }}</td>
               </tr>
               <tr>
-                <th scope="row">Ukupan broj dodatnih casova</th>
-                <td>20</td>
+                <th scope="row">Ukupa uplaćena svota novca</th>
+                <td>{{ totalPaidAmount }} RSD</td>
               </tr>
               <tr>
-                <th scope="row">Ukupa uplacena svota novca</th>
-                <td>5500 RSD</td>
+                <th scope="row">Ukupni troškovi</th>
+                <td>{{ debitAmount }} RSD</td>
               </tr>
               <tr>
                 <th scope="row">Ukupno dugovanje</th>
-                <td>50000 RSD</td>
+                <td>{{ studentDebitAmount }} RSD</td>
               </tr>
             </tbody>
           </table>
@@ -128,7 +128,8 @@
               <tbody>
                 <tr *ngFor="let lessons of student.lessons; trackBy: trackId" data-cy="entityTable">
                   <td>{{ lessons.date | formatMediumDatetime }}</td>
-                  <td>{{ lessons.type }}</td>
+                  <td *ngIf="lessons.type === lessonsType.DRIVING">Praktična nastava</td>
+                  <td *ngIf="lessons.type === lessonsType.THEORETICAL">Teorijska nastava</td>
                   <td>{{ lessons.amount }}</td>
                   <td class="text-right">
                     <div class="btn-group">

@@ -54,4 +54,13 @@ export class StudentService {
         }
         return;
     }
+
+  async calculate(id: string): Promise<void | undefined> {
+    await this.studentRepository.delete(id);
+    const entityFind = await this.findById(id);
+    if (entityFind) {
+      throw new HttpException('Error, entity not deleted!', HttpStatus.NOT_FOUND);
+    }
+    return;
+  }
 }
