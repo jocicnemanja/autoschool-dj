@@ -6,8 +6,6 @@ import { StudentMapper } from '../service/mapper/student.mapper';
 import { StudentRepository } from '../repository/student.repository';
 
 const relationshipNames = [];
-relationshipNames.push('payments');
-relationshipNames.push('lessons');
 @Injectable()
 export class StudentService {
     logger = new Logger('StudentService');
@@ -15,7 +13,7 @@ export class StudentService {
     constructor(@InjectRepository(StudentRepository) private studentRepository: StudentRepository) {}
 
     async findById(id: string): Promise<StudentDTO | undefined> {
-        const options = { relations: relationshipNames };
+        const options = { relations: ['payments','lessons'] };
         const result = await this.studentRepository.findOne(id, options);
         return StudentMapper.fromEntityToDTO(result);
     }

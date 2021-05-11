@@ -17,9 +17,6 @@
           <jhi-alert-error></jhi-alert-error>
 
           <jhi-alert></jhi-alert>
-          <!--          <button type='submit' (click)='previousState()' class='btn btn-info' data-cy='entityDetailsBackButton'>-->
-          <!--            <fa-icon icon='arrow-left'></fa-icon>&nbsp;<span jhiTranslate='entity.action.back'>Back</span>-->
-          <!--          </button>-->
           <table class="table">
             <tbody>
               <tr>
@@ -99,7 +96,7 @@
                 id="jh-create-entity-lessons"
                 data-cy="entityCreateButton"
                 class="btn btn-primary jh-create-entity create-lessons"
-                [routerLink]="['/lessons/new']"
+                (click)="createNewLessons(student)"
               >
                 <fa-icon icon="plus"></fa-icon>
                 <span jhiTranslate="autoschoolNewApp.lessons.home.createLabel"> Create a new Lessons </span>
@@ -166,7 +163,7 @@
                 id="jh-create-entity-payment"
                 data-cy="entityCreateButton"
                 class="btn btn-primary jh-create-entity create-payment"
-                [routerLink]="['/payment/new']"
+                (click)="createNewPayment(student)"
               >
                 <fa-icon icon="plus"></fa-icon>
                 <span jhiTranslate="autoschoolNewApp.payment.home.createLabel"> Create a new Payment </span>

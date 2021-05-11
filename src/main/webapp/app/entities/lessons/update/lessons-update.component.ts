@@ -39,14 +39,19 @@ export class LessonsUpdateComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRoute.data.subscribe(({ lessons }) => {
-      if (lessons.id === undefined) {
+      if (lessons) {
+        this.updateForm(lessons);
+      } else {
         const today = dayjs().startOf('day');
-        lessons.date = today;
+
+        this.editForm = this.fb.group({
+          id: [],
+          amount: [],
+          type: [],
+          date: [],
+          student: [this.activatedRoute.snapshot.params],
+        });
       }
-
-      this.updateForm(lessons);
-
-      this.loadRelationshipsOptions();
     });
   }
 
@@ -57,9 +62,10 @@ export class LessonsUpdateComponent implements OnInit {
   save(): void {
     this.isSaving = true;
     const lessons = this.createFromForm();
-    if (lessons.id !== undefined) {
+    if (lessons.id) {
       this.subscribeToSaveResponse(this.lessonsService.update(lessons));
     } else {
+      delete lessons.id;
       this.subscribeToSaveResponse(this.lessonsService.create(lessons));
     }
   }

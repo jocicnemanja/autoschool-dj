@@ -27,9 +27,9 @@ const lessonsRoute: Routes = [
   {
     path: 'new',
     component: LessonsUpdateComponent,
-    resolve: {
-      lessons: LessonsRoutingResolveService,
-    },
+    // resolve: {
+    //   lessons: LessonsRoutingResolveService,
+    // },
     canActivate: [UserRouteAccessService],
   },
   {

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { IStudent } from '../student.model';
 import { ILessons } from 'app/entities/lessons/lessons.model';
 import { StudentService } from 'app/entities/student/service/student.service';
@@ -8,6 +8,7 @@ import { PaymentDeleteDialogComponent } from 'app/entities/payment/delete/paymen
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { LessonsDeleteDialog } from '../../../../../../test/javascript/e2e/entities/lessons/lessons.page-object';
 import { LessonsDeleteDialogComponent } from 'app/entities/lessons/delete/lessons-delete-dialog.component';
+import { log } from 'util';
 
 @Component({
   selector: 'jhi-student-detail',
@@ -19,13 +20,20 @@ export class StudentDetailComponent implements OnInit {
   predicate!: string;
   ascending!: boolean;
 
-  constructor(protected activatedRoute: ActivatedRoute, protected modalService: NgbModal) {}
+  constructor(
+    protected activatedRoute: ActivatedRoute,
+    protected modalService: NgbModal,
+    protected router: Router,
+    protected studentService: StudentService
+  ) {}
 
   ngOnInit(): void {
     this.activatedRoute.data.subscribe(({ student }) => {
-      this.student = student;
-      // eslint-disable-next-line no-console
-      console.log('aaaaaa', this.student);
+      this.studentService.find(student.id as number).subscribe(data => {
+        // eslint-disable-next-line no-console
+        console.log(data);
+        this.student = data.body;
+      });
     });
   }
 
@@ -44,7 +52,7 @@ export class StudentDetailComponent implements OnInit {
     // unsubscribe not needed because closed completes on modal close
     modalRef.closed.subscribe(reason => {
       if (reason === 'deleted' && this.student?.lessons) {
-        this.student.lessons = this.student.lessons.filter(lessons => lessons.id !== lessonsForDelete.id);
+        this.studentService.find(this.student.id as number).subscribe(data => (this.student = data.body));
       }
     });
   }
@@ -55,12 +63,20 @@ export class StudentDetailComponent implements OnInit {
     // unsubscribe not needed because closed completes on modal close
     modalRef.closed.subscribe(reason => {
       if (reason === 'deleted' && this.student?.payments) {
-        this.student.payments = this.student.payments.filter(payment => payment.id !== paymentForDelete.id);
+        this.studentService.find(this.student.id as number).subscribe(data => (this.student = data.body));
       }
     });
   }
 
   trackId(index: number, item: IStudent | ILessons | IPayment): number {
     return item.id!;
+  }
+
+  createNewPayment(student: IStudent): void {
+    this.router.navigate(['payment/new', { ...student }]);
+  }
+
+  createNewLessons(student: IStudent): void {
+    this.router.navigate(['lessons/new', { ...student }]);
   }
 }

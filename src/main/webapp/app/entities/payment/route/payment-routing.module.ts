@@ -27,9 +27,6 @@ const paymentRoute: Routes = [
   {
     path: 'new',
     component: PaymentUpdateComponent,
-    resolve: {
-      payment: PaymentRoutingResolveService,
-    },
     canActivate: [UserRouteAccessService],
   },
   {

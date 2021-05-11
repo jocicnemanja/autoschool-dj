@@ -38,14 +38,18 @@ export class PaymentUpdateComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRoute.data.subscribe(({ payment }) => {
-      if (payment.id === undefined) {
+      if (payment) {
+        this.updateForm(payment);
+      } else {
         const today = dayjs().startOf('day');
-        payment.date = today;
+
+        this.editForm = this.fb.group({
+          id: [],
+          amount: [],
+          date: [],
+          student: [this.activatedRoute.snapshot.params],
+        });
       }
-
-      this.updateForm(payment);
-
-      this.loadRelationshipsOptions();
     });
   }
 
@@ -56,9 +60,10 @@ export class PaymentUpdateComponent implements OnInit {
   save(): void {
     this.isSaving = true;
     const payment = this.createFromForm();
-    if (payment.id !== undefined) {
+    if (payment.id) {
       this.subscribeToSaveResponse(this.paymentService.update(payment));
     } else {
+      delete payment.id;
       this.subscribeToSaveResponse(this.paymentService.create(payment));
     }
   }
@@ -95,16 +100,6 @@ export class PaymentUpdateComponent implements OnInit {
     });
 
     this.studentsSharedCollection = this.studentService.addStudentToCollectionIfMissing(this.studentsSharedCollection, payment.student);
-  }
-
-  protected loadRelationshipsOptions(): void {
-    this.studentService
-      .query()
-      .pipe(map((res: HttpResponse<IStudent[]>) => res.body ?? []))
-      .pipe(
-        map((students: IStudent[]) => this.studentService.addStudentToCollectionIfMissing(students, this.editForm.get('student')!.value))
-      )
-      .subscribe((students: IStudent[]) => (this.studentsSharedCollection = students));
   }
 
   protected createFromForm(): IPayment {
