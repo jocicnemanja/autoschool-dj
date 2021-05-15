@@ -38,17 +38,6 @@ export class ExamUpdateComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // this.activatedRoute.data.subscribe(({ exam }) => {
-    //   if (exam.id === undefined) {
-    //     const today = dayjs().startOf('day');
-    //     exam.date = today;
-    //   }
-    //
-    //   this.updateForm(exam);
-    //
-    //   this.loadRelationshipsOptions();
-    // });
-
     this.activatedRoute.data.subscribe(({ exam }) => {
       if (exam) {
         this.updateForm(exam);
@@ -58,7 +47,7 @@ export class ExamUpdateComponent implements OnInit {
         this.editForm = this.fb.group({
           id: [],
           type: [],
-          date: [],
+          date: [today],
           student: [this.activatedRoute.snapshot.params],
         });
       }

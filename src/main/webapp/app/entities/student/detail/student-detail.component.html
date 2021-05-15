@@ -60,24 +60,24 @@
           <h2 data-cy="studentDetailsHeading"><span>Finansijski status</span></h2>
           <table class="table">
             <tbody>
+              <!--              <tr>-->
+              <!--                <th scope="row">Ukupan broj teorijskih časova</th>-->
+              <!--                <td>{{ theoreticalHours }}</td>-->
+              <!--              </tr>-->
+              <!--              <tr>-->
+              <!--                <th scope="row">Ukupan broj praktičnih časova</th>-->
+              <!--                <td>{{ drivingHours }}</td>-->
+              <!--              </tr>-->
               <tr>
-                <th scope="row">Ukupan broj teorijskih časova</th>
-                <td>{{ theoreticalHours }}</td>
-              </tr>
-              <tr>
-                <th scope="row">Ukupan broj praktičnih časova</th>
-                <td>{{ drivingHours }}</td>
-              </tr>
-              <tr>
-                <th scope="row">Ukupa uplaćena svota novca</th>
+                <th scope="row">Ukupna uplaćena svota novca</th>
                 <td>{{ totalPaidAmount }} RSD</td>
               </tr>
               <tr>
-                <th scope="row">Ukupni troškovi</th>
+                <th scope="row">Ukupni troškovi polaganja</th>
                 <td>{{ debitAmount }} RSD</td>
               </tr>
               <tr>
-                <th scope="row">Ukupno dugovanje</th>
+                <th scope="row">Ukupno dugovanje kandidata</th>
                 <td>{{ studentDebitAmount }} RSD</td>
               </tr>
             </tbody>
@@ -216,7 +216,7 @@
         </div>
       </div>
       <div class="row mt-5">
-        <div class="col-6">
+        <div class="col-lg-6 col-sm-12 col-md-12">
           <div>
             <div class="row">
               <div class="col">

@@ -50,7 +50,7 @@ export class LessonsUpdateComponent implements OnInit {
           id: [],
           amount: [],
           type: [],
-          date: [],
+          date: [today],
           student: [this.activatedRoute.snapshot.params],
         });
       }

@@ -46,7 +46,7 @@ export class PaymentUpdateComponent implements OnInit {
         this.editForm = this.fb.group({
           id: [],
           amount: [],
-          date: [],
+          date: [today],
           student: [this.activatedRoute.snapshot.params],
         });
       }

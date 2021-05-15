@@ -18,8 +18,8 @@
         "title": "Ispiti"
       },
       "id": "ID",
-      "type": "Type",
-      "date": "Date",
+      "type": "Tip ispita ",
+      "date": "Datum unosa ispita",
       "student": "Student"
     }
   }

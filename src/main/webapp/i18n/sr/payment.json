@@ -15,7 +15,7 @@
         "question": "Are you sure you want to delete Payment {{ id }}?"
       },
       "detail": {
-        "title": "Uplata"
+        "title": "Kandidatove uplate"
       },
       "id": "ID",
       "amount": "Iznos u RSD",

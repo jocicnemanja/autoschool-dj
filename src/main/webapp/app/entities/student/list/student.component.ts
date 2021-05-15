@@ -9,6 +9,7 @@ import { IStudent } from '../student.model';
 import { ITEMS_PER_PAGE } from 'app/config/pagination.constants';
 import { StudentService } from '../service/student.service';
 import { StudentDeleteDialogComponent } from '../delete/student-delete-dialog.component';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'jhi-student',
@@ -23,12 +24,18 @@ export class StudentComponent implements OnInit {
   predicate!: string;
   ascending!: boolean;
   ngbPaginationPage = 1;
+  searchForm = this.fb.group({
+    firstName: '',
+    lastName: '',
+    jmbg: '',
+  });
 
   constructor(
     protected studentService: StudentService,
     protected activatedRoute: ActivatedRoute,
     protected router: Router,
-    protected modalService: NgbModal
+    protected modalService: NgbModal,
+    protected fb: FormBuilder
   ) {}
 
   loadPage(page?: number, dontNavigate?: boolean): void {

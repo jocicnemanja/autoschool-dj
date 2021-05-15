@@ -123,6 +123,10 @@ export class StudentDetailComponent implements OnInit {
       }
     });
 
+    this.student?.exams?.forEach(exam => {
+      this.debitAmount += 4000;
+    });
+
     this.student?.payments?.forEach(payment => {
       this.totalPaidAmount += payment.amount ?? 0;
     });
