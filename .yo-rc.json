@@ -50,7 +50,7 @@
     "buildTool": "maven",
     "enableHibernateCache": true,
     "reactive": false,
-    "entities": ["Student", "Payment", "Lessons"],
-    "lastLiquibaseTimestamp": 1620666118000
+    "entities": ["Student", "Payment", "Lessons", "Exam"],
+    "lastLiquibaseTimestamp": 1621089618000
   }
 }

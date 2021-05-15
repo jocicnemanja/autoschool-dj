@@ -215,6 +215,74 @@
           </div>
         </div>
       </div>
+      <div class="row mt-5">
+        <div class="col-6">
+          <div>
+            <div class="row">
+              <div class="col">
+                <h2 data-cy="examDetailsHeading"><span jhiTranslate="autoschoolNewApp.exam.detail.title">Ispiti</span></h2>
+              </div>
+              <div class="col text-right">
+                <button
+                  id="jh-create-entity-exams"
+                  data-cy="entityCreateButton"
+                  class="btn btn-primary jh-create-entity create-exam"
+                  (click)="createNewExam(student)"
+                >
+                  <fa-icon icon="plus"></fa-icon>
+                  <span jhiTranslate="autoschoolNewApp.exam.home.createLabel"> Create a new Exam </span>
+                </button>
+              </div>
+            </div>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <jhi-alert></jhi-alert>
+
+            <div class="alert alert-warning" id="no-result-exams" *ngIf="student.exams?.length === 0">
+              <span jhiTranslate="autoschoolNewApp.exam.home.notFound">No exams found</span>
+            </div>
+
+            <div class="table-responsive" id="entities" *ngIf="student.exams && student.exams.length > 0">
+              <table class="table table-striped" aria-describedby="page-heading">
+                <thead>
+                  <tr>
+                    <th scope="col"><span jhiTranslate="autoschoolNewApp.exam.date">Date</span></th>
+                    <th scope="col"><span jhiTranslate="autoschoolNewApp.exam.type">Type</span></th>
+                    <th scope="col"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let exam of student?.exams" data-cy="entityTable">
+                    <td>{{ exam.date | formatMediumDatetime }}</td>
+                    <td *ngIf="exam.type === examType.DRIVING">Vozački ispit</td>
+                    <td *ngIf="exam.type === examType.THEORETICAL">Teorijski ispit</td>
+                    <td class="text-right">
+                      <div class="btn-group">
+                        <button
+                          type="submit"
+                          [routerLink]="['/exam', exam.id, 'edit']"
+                          class="btn btn-primary btn-sm"
+                          data-cy="entityEditButton"
+                        >
+                          <fa-icon icon="pencil-alt"></fa-icon>
+                          <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+
+                        <button type="submit" (click)="deleteExam(exam)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                          <fa-icon icon="times"></fa-icon>
+                          <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="col-6"></div>
+      </div>
     </div>
   </div>
 </div>

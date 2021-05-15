@@ -19,6 +19,11 @@ import { RouterModule } from '@angular/router';
         data: { pageTitle: 'autoschoolNewApp.lessons.home.title' },
         loadChildren: () => import('./lessons/lessons.module').then(m => m.LessonsModule),
       },
+      {
+        path: 'exam',
+        data: { pageTitle: 'autoschoolNewApp.exam.home.title' },
+        loadChildren: () => import('./exam/exam.module').then(m => m.ExamModule),
+      },
       /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
     ]),
   ],

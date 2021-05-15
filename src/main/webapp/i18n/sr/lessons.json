@@ -6,7 +6,7 @@
         "refreshListLabel": "Osveži listu",
         "createLabel": "Dodaj nove časove",
         "createOrEditLabel": "Create or edit a Lessons",
-        "notFound": "Nema unešenih časova"
+        "notFound": "Nema unetih časova"
       },
       "created": "A new Lessons is created with identifier {{ param }}",
       "updated": "A Lessons is updated with identifier {{ param }}",

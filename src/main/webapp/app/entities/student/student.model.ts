@@ -1,6 +1,7 @@
 import * as dayjs from 'dayjs';
 import { IPayment } from 'app/entities/payment/payment.model';
 import { ILessons } from 'app/entities/lessons/lessons.model';
+import { IExam } from 'app/entities/exam/exam.model';
 
 export interface IStudent {
   id?: number;
@@ -13,6 +14,7 @@ export interface IStudent {
   date?: dayjs.Dayjs | null;
   payments?: IPayment[] | null;
   lessons?: ILessons[] | null;
+  exams?: IExam[] | null;
 }
 
 export class Student implements IStudent {
@@ -26,7 +28,8 @@ export class Student implements IStudent {
     public jmbg?: number | null,
     public date?: dayjs.Dayjs | null,
     public payments?: IPayment[] | null,
-    public lessons?: ILessons[] | null
+    public lessons?: ILessons[] | null,
+    public exams?: IExam[] | null
   ) {}
 }
 

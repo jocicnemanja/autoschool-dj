@@ -90,6 +90,10 @@ export class StudentService {
     if (res.body?.payments) {
       res.body.payments.forEach(payment => (payment.date = payment.date ? dayjs(payment.date) : undefined));
     }
+
+    if (res.body?.exams) {
+      res.body.exams.forEach(exam => (exam.date = exam.date ? dayjs(exam.date) : undefined));
+    }
     return res;
   }
 

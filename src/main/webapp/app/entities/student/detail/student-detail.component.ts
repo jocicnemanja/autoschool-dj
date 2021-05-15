@@ -8,6 +8,9 @@ import { PaymentDeleteDialogComponent } from 'app/entities/payment/delete/paymen
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { LessonsDeleteDialogComponent } from 'app/entities/lessons/delete/lessons-delete-dialog.component';
 import { LessonsType } from '../../lessons/lessons.enum';
+import { Exam, IExam } from 'app/entities/exam/exam.model';
+import { ExamDeleteDialogComponent } from 'app/entities/exam/delete/exam-delete-dialog.component';
+import { ExamType } from 'app/entities/exam/exam.enum';
 
 @Component({
   selector: 'jhi-student-detail',
@@ -15,10 +18,10 @@ import { LessonsType } from '../../lessons/lessons.enum';
 })
 export class StudentDetailComponent implements OnInit {
   student: IStudent | null = null;
-  lessons?: ILessons[] | null;
   predicate!: string;
   ascending!: boolean;
   lessonsType = LessonsType;
+  examType = ExamType;
   drivingHours = 0;
   theoreticalHours = 0;
   totalPaidAmount = 0;
@@ -45,11 +48,6 @@ export class StudentDetailComponent implements OnInit {
 
   previousState(): void {
     window.history.back();
-  }
-
-  // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-  delete(lessons: ILessons) {
-    return true;
   }
 
   deleteLessons(lessonsForDelete: ILessons): void {
@@ -80,6 +78,19 @@ export class StudentDetailComponent implements OnInit {
     });
   }
 
+  deleteExam(examForDelete: IExam): void {
+    const modalRef = this.modalService.open(ExamDeleteDialogComponent, { size: 'lg', backdrop: 'static' });
+    modalRef.componentInstance.exam = examForDelete;
+    modalRef.closed.subscribe(reason => {
+      if (reason === 'deleted' && this.student?.lessons) {
+        this.studentService.find(this.student.id as number).subscribe(data => {
+          this.student = data.body;
+          this.calculate();
+        });
+      }
+    });
+  }
+
   trackId(index: number, item: IStudent | ILessons | IPayment): number {
     return item.id!;
   }
@@ -90,6 +101,10 @@ export class StudentDetailComponent implements OnInit {
 
   createNewLessons(student: IStudent): void {
     this.router.navigate(['lessons/new', { ...student }]);
+  }
+
+  createNewExam(student: IStudent): void {
+    this.router.navigate(['exam/new', { ...student }]);
   }
 
   calculate(): void {

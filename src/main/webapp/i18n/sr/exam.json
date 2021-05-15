@@ -1,0 +1,26 @@
+{
+  "autoschoolNewApp": {
+    "exam": {
+      "home": {
+        "title": "Ispit",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Kreiraj novi ispit",
+        "createOrEditLabel": "Kreirajte ili izmenite ispit",
+        "notFound": "Nema unetih ispita"
+      },
+      "created": "Kreiran je novi Exam pod nazivom {{ param }}",
+      "updated": "Exam pod nazivom {{ param }} je ažuriran",
+      "deleted": "Exam pod nazivom {{ param }} je obrisan",
+      "delete": {
+        "question": "Da li ste sigurni da želite da obrišete Exam pod nazivom {{ id }}?"
+      },
+      "detail": {
+        "title": "Ispiti"
+      },
+      "id": "ID",
+      "type": "Type",
+      "date": "Date",
+      "student": "Student"
+    }
+  }
+}

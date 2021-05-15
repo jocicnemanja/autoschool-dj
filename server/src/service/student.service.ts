@@ -13,7 +13,7 @@ export class StudentService {
     constructor(@InjectRepository(StudentRepository) private studentRepository: StudentRepository) {}
 
     async findById(id: string): Promise<StudentDTO | undefined> {
-        const options = { relations: ['payments','lessons'] };
+        const options = { relations: ['payments','lessons', 'exams'] };
         const result = await this.studentRepository.findOne(id, options);
         return StudentMapper.fromEntityToDTO(result);
     }
