@@ -32,7 +32,7 @@ export class Student extends BaseEntity {
   @Column({ type: 'integer', name: 'jmbg', nullable: true })
   jmbg: number;
 
-  @Column({ type: 'datetime', name: 'date', nullable: true })
+  @Column({ type: 'date', name: 'date', nullable: true })
   date: any;
 
   @OneToMany((type) => Payment, (other) => other.student)

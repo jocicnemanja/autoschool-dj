@@ -9,7 +9,7 @@ import { Student } from './student.entity';
  */
 @Entity('lessons')
 export class Lessons extends BaseEntity {
-    @Column({ type: 'datetime', name: 'date', nullable: true })
+    @Column({ type: 'date', name: 'date', nullable: true })
     date: any;
 
     @Column({ name: 'type', nullable: true })

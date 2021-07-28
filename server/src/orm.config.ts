@@ -26,12 +26,12 @@ function ormConfig(): TypeOrmModuleOptions {
     if (process.env.BACKEND_ENV === 'prod') {
         ormconfig = {
             name: 'default',
-            type: 'mysql',
-            database: 'autoschool_new',
+            type: 'postgres',
+            database: 'autoschool-db',
             host: 'localhost',
-            port: 3307,
-            username: 'sa',
-            password: 'yourStrong(!)Password',
+            port: 5432,
+            username: 'ubuntu',
+            password: 'mnogojakasifra',
             logging: false,
             synchronize: commonConf.SYNCRONIZE,
             entities: commonConf.ENTITIES,

@@ -166,7 +166,6 @@ $ npm run test:cov
 $ npm run test:e2e
 
 ```
-test
 
 ## Support
 

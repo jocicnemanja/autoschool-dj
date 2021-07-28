@@ -12,7 +12,7 @@ export class Exam extends BaseEntity {
     @Column({ name: 'type', nullable: true })
     type: string;
 
-    @Column({ type: 'datetime', name: 'date', nullable: true })
+    @Column({ type: 'date', name: 'date', nullable: true })
     date: any;
 
     @ManyToOne((type) => Student)

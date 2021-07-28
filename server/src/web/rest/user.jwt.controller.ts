@@ -1,4 +1,4 @@
-import { Body, Controller, Logger, Post, Res, Req, UseInterceptors } from '@nestjs/common';
+import { Body, Controller, Logger, Post, Res, Req, UseInterceptors, Get } from '@nestjs/common';
 import { Response, Request } from 'express';
 import { UserLoginDTO } from '../../service/dto/user-login.dto';
 import { AuthService } from '../../service/auth.service';
@@ -24,4 +24,11 @@ export class UserJWTController {
         res.setHeader('Authorization', 'Bearer ' + jwt.id_token);
         return res.json(jwt);
     }
+
+
+  @Get('/test')
+  @ApiOperation({ title: 'Testing api' })
+  async test(): Promise<any> {
+    return 'RADII!';
+  }
 }

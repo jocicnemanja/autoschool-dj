@@ -12,7 +12,7 @@ export class Payment extends BaseEntity {
     @Column({ type: 'integer', name: 'amount', nullable: true })
     amount: number;
 
-    @Column({ type: 'datetime', name: 'date', nullable: true })
+    @Column({ type: 'date', name: 'date', nullable: true })
     date: any;
 
     @ManyToOne((type) => Student)

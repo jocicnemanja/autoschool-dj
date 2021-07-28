@@ -55,6 +55,7 @@
     "mysql2": "2.2.5",
     "passport": "0.4.1",
     "passport-jwt": "4.0.0",
+    "pg": "^8.7.1",
     "reflect-metadata": "0.1.13",
     "rxjs": "6.6.3",
     "shelljs": "0.8.4",
@@ -90,6 +91,7 @@
     "tsconfig-paths": "3.8.0",
     "tslint": "5.20.1",
     "typescript": "3.8.3",
-    "webpack": "4.41.5"
+    "webpack": "4.41.5",
+    "webpack-cli": "^4.7.2"
   }
 }
