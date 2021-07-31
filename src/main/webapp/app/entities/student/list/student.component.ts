@@ -10,6 +10,7 @@ import { ITEMS_PER_PAGE } from 'app/config/pagination.constants';
 import { StudentService } from '../service/student.service';
 import { StudentDeleteDialogComponent } from '../delete/student-delete-dialog.component';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { log } from 'util';
 
 @Component({
   selector: 'jhi-student',
@@ -77,6 +78,20 @@ export class StudentComponent implements OnInit {
         this.loadPage();
       }
     });
+  }
+
+  search(): void {
+    this.studentService.search(this.searchForm.getRawValue()).subscribe(
+      (res: HttpResponse<IStudent[]>) => {
+        this.isLoading = false;
+        this.students = res.body ?? [];
+        //this.onSuccess(res.body, res.headers, 0, false);
+      },
+      () => {
+        this.isLoading = false;
+        this.onError();
+      }
+    );
   }
 
   protected sort(): string[] {

@@ -73,6 +73,12 @@ export class StudentService {
     return studentCollection;
   }
 
+  search(params: any): Observable<any> {
+    return this.http
+      .get<IStudent[]>(`${this.resourceUrl}/search`, { params, observe: 'response' })
+      .pipe(map((res: EntityArrayResponseType) => this.convertDateArrayFromServer(res)));
+  }
+
   protected convertDateFromClient(student: IStudent): IStudent {
     return Object.assign({}, student, {
       date: student.date?.isValid() ? student.date.toJSON() : undefined,

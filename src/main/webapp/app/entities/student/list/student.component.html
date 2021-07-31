@@ -42,11 +42,11 @@
         <div class="input-group-prepend">
           <span class="input-group-text" for="jmbg">JMBG</span>
         </div>
-        <input class="form-control" id="jmbg" formControlName="jmbg" />
+        <input type="number" class="form-control" id="jmbg" formControlName="jmbg" />
       </div>
     </div>
     <div class="col-md mb-2">
-      <button class="btn btn-primary mb-3" [disabled]="isLoading">
+      <button class="btn btn-primary mb-3" (click)="search()" [disabled]="isLoading">
         <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
         <span>Pretraži</span>
       </button>
