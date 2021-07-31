@@ -1,39 +1,58 @@
 <div>
   <h2 id="page-heading" data-cy="StudentHeading">
     <span jhiTranslate="autoschoolNewApp.student.home.title">Students</span>
-    <div class="row"></div>
-    <div class="d-flex justify-content-end">
-      <form class="form-inline" [formGroup]="searchForm">
-        <div class="form-group mx-sm-3 mb-2">
-          <label for="firstName" class="sr-only">Ime</label>
-          <input class="form-control" id="firstName" formControlName="firstName" placeholder="Ime" />
-        </div>
-        <div class="form-group mx-sm-3 mb-2">
-          <label for="lastName" class="sr-only">Prezime</label>
-          <input class="form-control" id="lastName" formControlName="lastName" placeholder="Prezime" />
-        </div>
-        <div class="form-group mx-sm-3 mb-2">
-          <label for="jmbg" class="sr-only">JMBG</label>
-          <input class="form-control" id="jmbg" placeholder="JMBG" formControlName="jmbg" />
-        </div>
-      </form>
-      <button class="btn btn-info mr-2" (click)="loadPage()" [disabled]="isLoading">
-        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
-        <span jhiTranslate="autoschoolNewApp.student.home.refreshListLabel">Refresh List</span>
-      </button>
+  </h2>
+  <div class="d-flex justify-content-start">
+    <button class="btn btn-info mr-2" (click)="loadPage()" [disabled]="isLoading">
+      <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+      <span jhiTranslate="autoschoolNewApp.student.home.refreshListLabel">Refresh List</span>
+    </button>
 
-      <button
-        id="jh-create-entity"
-        data-cy="entityCreateButton"
-        class="btn btn-primary jh-create-entity create-student"
-        [routerLink]="['/student/new']"
-      >
-        <fa-icon icon="plus"></fa-icon>
-        <span jhiTranslate="autoschoolNewApp.student.home.createLabel"> Create a new Student </span>
+    <button
+      id="jh-create-entity"
+      data-cy="entityCreateButton"
+      class="btn btn-primary jh-create-entity create-student"
+      [routerLink]="['/student/new']"
+    >
+      <fa-icon icon="plus"></fa-icon>
+      <span jhiTranslate="autoschoolNewApp.student.home.createLabel"> Create a new Student </span>
+    </button>
+  </div>
+  <br />
+  <form class="row" [formGroup]="searchForm">
+    <div class="col-md mb-2">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text" for="firstName">Ime</span>
+        </div>
+        <input class="form-control" id="firstName" formControlName="firstName" />
+      </div>
+    </div>
+    <div class="col-md mb-2">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text" for="lastName">Prezime</span>
+        </div>
+        <input class="form-control" id="lastName" formControlName="lastName" />
+      </div>
+    </div>
+
+    <div class="col-md mb-2">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text" for="jmbg">JMBG</span>
+        </div>
+        <input class="form-control" id="jmbg" formControlName="jmbg" />
+      </div>
+    </div>
+    <div class="col-md mb-2">
+      <button class="btn btn-primary mb-3" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span>Pretraži</span>
       </button>
     </div>
-  </h2>
-
+  </form>
+  <br />
   <jhi-alert-error></jhi-alert-error>
 
   <jhi-alert></jhi-alert>
