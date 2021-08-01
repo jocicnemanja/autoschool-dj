@@ -3,11 +3,6 @@
     <span jhiTranslate="autoschoolNewApp.student.home.title">Students</span>
   </h2>
   <div class="d-flex justify-content-start">
-    <button class="btn btn-info mr-2" (click)="loadPage()" [disabled]="isLoading">
-      <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
-      <span jhiTranslate="autoschoolNewApp.student.home.refreshListLabel">Refresh List</span>
-    </button>
-
     <button
       id="jh-create-entity"
       data-cy="entityCreateButton"
@@ -46,9 +41,13 @@
       </div>
     </div>
     <div class="col-md mb-2">
-      <button class="btn btn-primary mb-3" (click)="search()" [disabled]="isLoading">
+      <button class="btn btn-primary mr-2" (click)="search()" [disabled]="isLoading">
         <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
         <span>Pretraži</span>
+      </button>
+      <button class="btn btn-info mr-2" (click)="loadPage()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="autoschoolNewApp.student.home.refreshListLabel">Refresh List</span>
       </button>
     </div>
   </form>

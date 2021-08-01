@@ -42,6 +42,11 @@ export class StudentComponent implements OnInit {
   loadPage(page?: number, dontNavigate?: boolean): void {
     this.isLoading = true;
     const pageToLoad: number = page ?? this.page ?? 1;
+    this.searchForm.reset({
+      firstName: '',
+      lastName: '',
+      jmbg: '',
+    });
 
     this.studentService
       .query({
@@ -81,11 +86,11 @@ export class StudentComponent implements OnInit {
   }
 
   search(): void {
+    this.isLoading = true;
     this.studentService.search(this.searchForm.getRawValue()).subscribe(
       (res: HttpResponse<IStudent[]>) => {
         this.isLoading = false;
         this.students = res.body ?? [];
-        //this.onSuccess(res.body, res.headers, 0, false);
       },
       () => {
         this.isLoading = false;
