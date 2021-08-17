@@ -207,3 +207,11 @@ For more information, refer to the [Code quality page][].
 [protractor]: https://angular.github.io/protractor/
 [leaflet]: http://leafletjs.com/
 [definitelytyped]: http://definitelytyped.org/
+
+### Architecture 
+AWS
+EC2 server and DB iwht PM2
+S3 for static files, using file zila to transfer files to S3
+
+### Credentials
+email for AWS: nemanja.jocic1234567@gmail.com
