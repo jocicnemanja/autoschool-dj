@@ -210,7 +210,7 @@ For more information, refer to the [Code quality page][].
 
 ### Architecture 
 AWS
-EC2 server and DB iwht PM2
+EC2 server and DB iwht PM2 using Putty for connecting to virtual machine
 S3 for static files, using file zila to transfer files to S3
 
 ### Credentials
