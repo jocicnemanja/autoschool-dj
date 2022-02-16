@@ -1,8 +1,7 @@
 # Driving school
 
-This application was created to sipmlify proces of tracking data and transactions for drving schools.
-### The pro version of this app is used by drving school "Đokić MiM" 
-
+## The pro version of this app is used by drving school "Đokić MiM" 
+### This application was created to sipmlify proces of tracking data and transactions for drving schools.
 
 ## Architecture 
 Client-Server, monolith app 
