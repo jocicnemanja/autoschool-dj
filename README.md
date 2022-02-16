@@ -1,6 +1,15 @@
-# autoschool_new
+# Autoschool
 
-This application was generated using the [NodeJS blueprint](https://github.com/jhipster/generator-jhipster-nodejs) of JHipster 7.0.0, you can find documentation and help at [https://www.jhipster.tech/documentation-archive/v7.0.0](https://www.jhipster.tech/documentation-archive/v7.0.0). For any questions you can refer to the stream lead: [Angelo Manganiello](https://github.com/amanganiello90).
+This application was created to sipmlify proces of tracking data and transactions for drving schools.
+### The pro version of this app is used by drving school "Đokić MiM" 
+
+
+## Architecture 
+Client-Server, monolith app 
+Angular, NesJs app
+Hosted on AWS : EC2 server and DB iwht PM2 using Putty for connecting to virtual machine, S3 for static files, using filezila to transfer files to S3
+
+
 
 ## Development
 
@@ -208,10 +217,4 @@ For more information, refer to the [Code quality page][].
 [leaflet]: http://leafletjs.com/
 [definitelytyped]: http://definitelytyped.org/
 
-### Architecture 
-AWS
-EC2 server and DB iwht PM2 using Putty for connecting to virtual machine
-S3 for static files, using file zila to transfer files to S3
 
-### Credentials
-email for AWS: nemanja.jocic1234567@gmail.com
